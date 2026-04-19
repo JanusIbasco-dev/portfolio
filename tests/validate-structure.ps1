@@ -13,7 +13,6 @@ $required = @(
   'id="about"',
   'id="skills"',
   'id="projects"',
-  'id="github"',
   'id="journey"',
   'id="contact"',
   'Janus Ibasco',

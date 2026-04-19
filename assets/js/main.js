@@ -302,9 +302,6 @@
     initParticles();
     initTerminal();
     initContactForm();
-    if (window.loadGitHubData) {
-      window.loadGitHubData();
-    }
 
     document.querySelectorAll("button, a").forEach((node) => {
       node.addEventListener("click", clickFeedback);
