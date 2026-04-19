@@ -1,0 +1,11 @@
+{
+  "name": "janus-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interactive developer portfolio for Janus Ibasco",
+  "scripts": {
+    "serve": "python -m http.server 5500",
+    "test": "powershell -NoProfile -ExecutionPolicy Bypass -File .\\tests\\validate-structure.ps1"
+  }
+}
+

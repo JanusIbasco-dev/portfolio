@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Janus Ibasco - IT Student and Developer Portfolio" />
+  <title>Janus Ibasco | Developer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+</head>
+<body>
+  <div class="splash" id="splash" aria-hidden="true">
+    <p>Loading Janus Portfolio...</p>
+  </div>
+
+  <div class="bg-grid" aria-hidden="true"></div>
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <header class="site-header glass" id="top">
+    <a href="#home" class="brand">JI</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#github">GitHub</a>
+      <a href="#journey">Goals</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button id="sound-toggle" class="icon-btn" aria-label="Toggle sound feedback">Sound: Off</button>
+      <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">Light</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy reveal">
+        <p class="pill">IT Student @ University of the Cordilleras</p>
+        <h1 class="hero-name">Janus Ibasco</h1>
+        <h2 class="hero-subtitle">IT Student | Web &amp; Application Developer</h2>
+        <p class="hero-intro">I build interactive digital experiences, from modern websites to functional applications, focusing on clean UI, performance, and creativity.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn" href="https://github.com/JanusIbasco-dev" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="#contact">Contact</a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="orb-wrap">
+          <div class="orb" id="hero-orb"></div>
+        </div>
+        <section class="terminal glass" id="terminal" aria-label="Interactive portfolio terminal">
+          <header>
+            <span></span><span></span><span></span>
+            <p>janus@portfolio:~</p>
+          </header>
+          <div class="terminal-log" id="terminal-log"></div>
+          <form id="terminal-form">
+            <label for="terminal-input" class="sr-only">Terminal command</label>
+            <span>&gt;</span>
+            <input id="terminal-input" autocomplete="off" placeholder="Try: help" />
+          </form>
+        </section>
+      </div>
+    </section>
+
+    <section class="section reveal" id="about">
+      <h3>About Me</h3>
+      <p>I am Janus Ibasco, an IT student at the University of the Cordilleras passionate about building modern web applications and interactive systems. I focus on clean UI design, performance, and continuous learning in software development.</p>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-head reveal">
+        <h3>Skills</h3>
+        <p>Core technologies and growing strengths.</p>
+      </div>
+      <div class="skills-grid">
+        <article class="skill-card reveal" data-level="92">
+          <h4>HTML, CSS, JavaScript</h4>
+          <div class="meter"><span></span></div>
+        </article>
+        <article class="skill-card reveal" data-level="86">
+          <h4>React / Frontend Development</h4>
+          <div class="meter"><span></span></div>
+        </article>
+        <article class="skill-card reveal" data-level="83">
+          <h4>UI/UX Design</h4>
+          <div class="meter"><span></span></div>
+        </article>
+        <article class="skill-card reveal" data-level="80">
+          <h4>API Integration</h4>
+          <div class="meter"><span></span></div>
+        </article>
+        <article class="skill-card reveal" data-level="68">
+          <h4>Backend Basics</h4>
+          <div class="meter"><span></span></div>
+        </article>
+        <article class="skill-card reveal" data-level="90">
+          <h4>Git &amp; GitHub</h4>
+          <div class="meter"><span></span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-head reveal">
+        <h3>Projects</h3>
+        <p>Selected work across web, UI experiments, and systems.</p>
+      </div>
+      <div class="filter-row reveal" id="project-filters">
+        <button class="active" data-filter="all">All</button>
+        <button data-filter="web">Web Apps</button>
+        <button data-filter="ui">UI Experiments</button>
+        <button data-filter="systems">Systems Projects</button>
+      </div>
+      <div class="project-grid" id="project-grid"></div>
+    </section>
+
+    <section class="section" id="github">
+      <div class="section-head reveal">
+        <h3>GitHub Live</h3>
+        <p>Auto-fetched profile stats and repository highlights.</p>
+      </div>
+      <div class="github-stats reveal" id="github-stats"></div>
+      <div class="contrib-block glass reveal">
+        <h4>Activity Heatmap</h4>
+        <div class="contrib-grid" id="contrib-grid" aria-label="Contribution style chart"></div>
+      </div>
+      <div class="repo-grid" id="repo-grid"></div>
+    </section>
+
+    <section class="section" id="journey">
+      <div class="section-head reveal">
+        <h3>Experience &amp; Goals</h3>
+      </div>
+      <div class="timeline">
+        <article class="time-item reveal">
+          <h4>IT Student - University of the Cordilleras</h4>
+          <p>Building foundations in software engineering, web development, and systems design.</p>
+        </article>
+        <article class="time-item reveal">
+          <h4>Current Focus</h4>
+          <p>Deepening practical skills in frontend architecture, API integration, and application development.</p>
+        </article>
+        <article class="time-item reveal">
+          <h4>Career Goal</h4>
+          <p>Become a full-stack developer or software engineer delivering robust and engaging products.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="section-head reveal">
+        <h3>Contact</h3>
+        <p>Open to collaboration, learning opportunities, and project discussions.</p>
+      </div>
+      <div class="contact-wrap">
+        <article class="contact-card glass reveal">
+          <p>Email</p>
+          <a href="mailto:janusibasco433@gmail.com">janusibasco433@gmail.com</a>
+          <p>GitHub</p>
+          <a href="https://github.com/JanusIbasco-dev" target="_blank" rel="noreferrer">github.com/JanusIbasco-dev</a>
+        </article>
+        <form class="contact-form glass reveal" id="contact-form">
+          <label for="name">Name</label>
+          <input id="name" name="name" required />
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+          <button class="btn primary" type="submit">Send Message</button>
+          <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Designed and built by Janus Ibasco.</p>
+  </footer>
+
+  <script src="assets/js/projects.js"></script>
+  <script src="assets/js/github.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
