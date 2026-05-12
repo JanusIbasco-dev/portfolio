@@ -1,29 +1,6 @@
 (function () {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const revealSelector = ".reveal";
-  let soundEnabled = false;
-  const audioContext = window.AudioContext ? new window.AudioContext() : null;
-
-  function clickFeedback() {
-    if (!soundEnabled || !audioContext) {
-      return;
-    }
-
-    const oscillator = audioContext.createOscillator();
-    const gain = audioContext.createGain();
-    oscillator.type = "triangle";
-    oscillator.frequency.value = 520;
-    gain.gain.value = 0.02;
-
-    oscillator.connect(gain);
-    gain.connect(audioContext.destination);
-    oscillator.start();
-    oscillator.stop(audioContext.currentTime + 0.04);
-
-    if (navigator.vibrate) {
-      navigator.vibrate(10);
-    }
-  }
 
   function initReveal() {
     const items = document.querySelectorAll(revealSelector);
@@ -62,7 +39,6 @@
       const light = document.body.classList.contains("light");
       localStorage.setItem("theme", light ? "light" : "dark");
       toggle.textContent = light ? "Dark" : "Light";
-      clickFeedback();
     });
   }
 
@@ -182,12 +158,11 @@
     terminalPrint("Type 'help' to explore this portfolio.");
 
     const commands = {
-      help: "Commands: help, about, intro, skills, journey, contact, theme, clear",
+      help: "Commands: help, about, intro, skills, journey, theme, clear",
       about: "Janus Ibasco is an IT student focused on web and app development, currently working on a student-focused AI web app.",
       intro: "Jumping to the introduction section...",
       skills: "Core: HTML/CSS/JS, React, UI/UX, API Integration, Backend Basics, GitHub",
       journey: "Jumping to goals section...",
-      contact: "Email: janusibasco433@gmail.com",
       theme: "Toggling theme..."
     };
 
@@ -208,9 +183,6 @@
       } else if (raw === "journey") {
         terminalPrint(commands.journey);
         document.getElementById("journey").scrollIntoView({ behavior: "smooth" });
-      } else if (raw === "contact") {
-        terminalPrint(commands.contact);
-        document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
       } else if (raw === "theme") {
         terminalPrint(commands.theme);
         document.getElementById("theme-toggle").click();
@@ -219,32 +191,6 @@
       }
 
       input.value = "";
-      clickFeedback();
-    });
-  }
-
-  function initContactForm() {
-    const form = document.getElementById("contact-form");
-    const note = document.getElementById("form-note");
-
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      note.textContent = "Thanks! Your message is prepared. Please send via your email client.";
-      form.reset();
-      clickFeedback();
-    });
-  }
-
-  function initSoundToggle() {
-    const toggle = document.getElementById("sound-toggle");
-    toggle.addEventListener("click", async () => {
-      if (audioContext && audioContext.state === "suspended") {
-        await audioContext.resume();
-      }
-
-      soundEnabled = !soundEnabled;
-      toggle.textContent = soundEnabled ? "Sound: On" : "Sound: Off";
-      clickFeedback();
     });
   }
 
@@ -256,17 +202,11 @@
   function bootstrap() {
     hideSplash();
     initThemeToggle();
-    initSoundToggle();
     initReveal();
     initSkillMeters();
     initOrbInteraction();
     initParticles();
     initTerminal();
-    initContactForm();
-
-    document.querySelectorAll("button, a").forEach((node) => {
-      node.addEventListener("click", clickFeedback);
-    });
   }
 
   document.addEventListener("DOMContentLoaded", bootstrap);

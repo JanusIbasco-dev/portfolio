@@ -14,10 +14,15 @@ $required = @(
   'id="introduction"',
   'id="skills"',
   'id="journey"',
-  'id="contact"',
   'Janus Ibasco',
-  'janusibasco433@gmail.com',
   'JanusIbasco-dev'
+)
+
+$forbidden = @(
+  'id="contact"',
+  'sound-toggle',
+  'initSoundToggle',
+  'initContactForm'
 )
 
 $missing = @()
@@ -30,6 +35,19 @@ foreach ($item in $required) {
 if ($missing.Count -gt 0) {
   Write-Host 'Missing expected content:' -ForegroundColor Red
   $missing | ForEach-Object { Write-Host "- $_" -ForegroundColor Red }
+  exit 1
+}
+
+$presentForbidden = @()
+foreach ($item in $forbidden) {
+  if ($content -match [regex]::Escape($item)) {
+    $presentForbidden += $item
+  }
+}
+
+if ($presentForbidden.Count -gt 0) {
+  Write-Host 'Found removed content that should no longer exist:' -ForegroundColor Red
+  $presentForbidden | ForEach-Object { Write-Host "- $_" -ForegroundColor Red }
   exit 1
 }
 

@@ -19,8 +19,7 @@
 
   .skills-grid,
   .repo-grid,
-  .github-stats,
-  .contact-wrap {
+  .github-stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -42,8 +41,7 @@
 
   .skills-grid,
   .repo-grid,
-  .github-stats,
-  .contact-wrap {
+  .github-stats {
     grid-template-columns: 1fr;
   }
 
