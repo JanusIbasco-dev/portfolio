@@ -183,7 +183,7 @@
 
     const commands = {
       help: "Commands: help, about, intro, skills, journey, contact, theme, clear",
-      about: "Janus Ibasco is an IT student focused on web and app development.",
+      about: "Janus Ibasco is an IT student focused on web and app development, currently working on a student-focused AI web app.",
       intro: "Jumping to the introduction section...",
       skills: "Core: HTML/CSS/JS, React, UI/UX, API Integration, Backend Basics, GitHub",
       journey: "Jumping to goals section...",
