@@ -11,8 +11,8 @@ $content = Get-Content -Path $index -Raw
 $required = @(
   'id="home"',
   'id="about"',
+  'id="introduction"',
   'id="skills"',
-  'id="projects"',
   'id="journey"',
   'id="contact"',
   'Janus Ibasco',

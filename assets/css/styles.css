@@ -330,7 +330,6 @@ body.light .terminal-log {
 }
 
 .skills-grid,
-.project-grid,
 .repo-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -338,7 +337,6 @@ body.light .terminal-log {
 }
 
 .skill-card,
-.project-card,
 .repo-card,
 .time-item,
 .contact-card,
@@ -352,7 +350,6 @@ body.light .terminal-log {
 }
 
 .skill-card:hover,
-.project-card:hover,
 .repo-card:hover,
 .time-item:hover {
   transform: translateY(-4px);
@@ -381,32 +378,11 @@ body.light .terminal-log {
   transition: width 0.8s ease;
 }
 
-.filter-row {
-  display: flex;
-  gap: 0.7rem;
-  margin: 0.4rem 0 1rem;
-  flex-wrap: wrap;
-}
-
-.project-tags,
 .repo-meta {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
   margin: 0.8rem 0;
-}
-
-.chip {
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 0.2rem 0.6rem;
-  font-size: 0.78rem;
-  color: var(--muted);
-}
-
-.card-links {
-  display: flex;
-  gap: 0.6rem;
 }
 
 .github-stats {
@@ -452,6 +428,12 @@ body.light .terminal-log {
   padding-left: 1.2rem;
   display: grid;
   gap: 1rem;
+}
+
+.intro-card {
+  padding: 1.3rem;
+  display: grid;
+  gap: 0.9rem;
 }
 
 .time-item {

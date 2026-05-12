@@ -79,48 +79,6 @@
     });
   }
 
-  function projectCard(project) {
-    const tags = project.stack.map((tag) => `<span class="chip">${tag}</span>`).join("");
-    const demo = project.demo ? `<a class="btn" href="${project.demo}" target="_blank" rel="noreferrer">Live Demo</a>` : "";
-    return `
-      <article class="project-card reveal" data-category="${project.category}">
-        <h4>${project.title}</h4>
-        <p>${project.description}</p>
-        <div class="project-tags">${tags}</div>
-        <div class="card-links">
-          <a class="btn" href="${project.github}" target="_blank" rel="noreferrer">GitHub</a>
-          ${demo}
-        </div>
-      </article>
-    `;
-  }
-
-  function initProjects() {
-    const grid = document.getElementById("project-grid");
-    const filters = document.getElementById("project-filters");
-    const data = window.featuredProjects || [];
-
-    grid.innerHTML = data.map(projectCard).join("");
-
-    filters.addEventListener("click", (event) => {
-      const button = event.target.closest("button");
-      if (!button) {
-        return;
-      }
-
-      filters.querySelectorAll("button").forEach((node) => node.classList.remove("active"));
-      button.classList.add("active");
-      const filter = button.dataset.filter;
-
-      document.querySelectorAll("#project-grid .project-card").forEach((card) => {
-        const category = card.dataset.category;
-        const show = filter === "all" || filter === category;
-        card.style.display = show ? "block" : "none";
-      });
-      clickFeedback();
-    });
-  }
-
   function initOrbInteraction() {
     const orb = document.getElementById("hero-orb");
     if (!orb || prefersReducedMotion) {
@@ -224,10 +182,11 @@
     terminalPrint("Type 'help' to explore this portfolio.");
 
     const commands = {
-      help: "Commands: help, about, skills, projects, contact, theme, clear",
+      help: "Commands: help, about, intro, skills, journey, contact, theme, clear",
       about: "Janus Ibasco is an IT student focused on modern web and app development.",
+      intro: "Jumping to the introduction section...",
       skills: "Core: HTML/CSS/JS, React, UI/UX, API Integration, Backend Basics, GitHub",
-      projects: "Jumping to projects section...",
+      journey: "Jumping to goals section...",
       contact: "Email: janusibasco433@gmail.com",
       theme: "Toggling theme..."
     };
@@ -243,9 +202,12 @@
 
       if (raw === "clear") {
         document.getElementById("terminal-log").innerHTML = "";
-      } else if (raw === "projects") {
-        terminalPrint(commands.projects);
-        document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
+      } else if (raw === "intro") {
+        terminalPrint(commands.intro);
+        document.getElementById("introduction").scrollIntoView({ behavior: "smooth" });
+      } else if (raw === "journey") {
+        terminalPrint(commands.journey);
+        document.getElementById("journey").scrollIntoView({ behavior: "smooth" });
       } else if (raw === "contact") {
         terminalPrint(commands.contact);
         document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
@@ -297,7 +259,6 @@
     initSoundToggle();
     initReveal();
     initSkillMeters();
-    initProjects();
     initOrbInteraction();
     initParticles();
     initTerminal();
